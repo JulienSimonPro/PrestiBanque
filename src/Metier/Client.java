@@ -1,14 +1,17 @@
 package Metier;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Client {
 	private String nom, prenom, adresse, ville, telephone, carte;
 	private int codePostal;
-	private ArrayList<CompteBancaire> listeCompteBancaire;
+	private HashMap<String, CompteBancaire> listeCompteBancaire;
+	
+	public static final String COMPTE_COURRANT = "COMPTE_COURRANT";
+	public static final String COMPTE_EPARGNE = "COMPTE_EPARGNE";
 
 	public Client(String nom, String prenom, String adresse, String ville, String telephone, String carte,
-			int codePostal, ArrayList<CompteBancaire> listeCompteBancaire) {
+			int codePostal, HashMap<String, CompteBancaire> listeCompteBancaire) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -76,11 +79,11 @@ public class Client {
 		this.codePostal = codePostal;
 	}
 
-	public ArrayList<CompteBancaire> getListeCompteBancaire() {
+	public HashMap<String, CompteBancaire> getListeCompteBancaire() {
 		return listeCompteBancaire;
 	}
 
-	public void setListeCompteBancaire(ArrayList<CompteBancaire> listeCompteBancaire) {
+	public void setListeCompteBancaire(HashMap<String, CompteBancaire> listeCompteBancaire) {
 		this.listeCompteBancaire = listeCompteBancaire;
 	}
 
