@@ -1,13 +1,14 @@
 package Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import Metier.*;
 
 public class PrestiBanqueSI {
 
-	public static Client creerClient(String nom, String prenom, ArrayList<CompteBancaire> listeCompteBancaire,
+	public static Client creerClient(String nom, String prenom, HashMap<String, CompteBancaire> listeCompteBancaire,
 			int codePostal, String carte, String telephone, String ville, String adresse) {
 		Client client = new Client(nom, prenom, adresse, ville, telephone, carte, codePostal, listeCompteBancaire);
 		return client;
@@ -15,7 +16,7 @@ public class PrestiBanqueSI {
 
 	public static void modifierInformationsClient(Client client, String nom, String prenom, String adresse,
 			int codePostal, String ville, String telephone, String carte,
-			ArrayList<CompteBancaire> listeCompteBancaire) {
+			HashMap<String, CompteBancaire> listeCompteBancaire) {
 		client.setNom(nom);
 		client.setPrenom(prenom);
 		client.setAdresse(adresse);
@@ -50,7 +51,7 @@ public class PrestiBanqueSI {
 	}
 
 	public static void supprimerClient(ArrayList<Client> listeClients, String nom, String prenom) throws Exception {
-		for (Iterator iterator = listeClients.iterator(); iterator.hasNext();) {
+		for (Iterator<Client> iterator = listeClients.iterator(); iterator.hasNext();) {
 			Client client = (Client) iterator.next();
 			if (client.getNom().equals(nom) && client.getPrenom().equals(prenom)) {
 				iterator.remove();
@@ -65,7 +66,7 @@ public class PrestiBanqueSI {
 	}
 	
 	public static void virementCompteACompte(ArrayList<Client> listeClients, String nom, String prenom, Double montant){
-		for (Iterator iterator = listeClients.iterator(); iterator.hasNext();) {
+		for (Iterator<Client> iterator = listeClients.iterator(); iterator.hasNext();) {
 			Client client = (Client) iterator.next();
 			if (client.getNom().equals(nom) && client.getPrenom().equals(prenom)) {
 				client.getListeCompteBancaire();
