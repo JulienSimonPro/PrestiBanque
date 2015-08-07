@@ -63,4 +63,14 @@ public class PrestiBanqueSI {
 		// la liste
 		throw new Exception("Le client n'a pas été supprimé");
 	}
+	
+	public static void virementCompteACompte(ArrayList<Client> listeClients, String nom, String prenom, Double montant){
+		for (Iterator iterator = listeClients.iterator(); iterator.hasNext();) {
+			Client client = (Client) iterator.next();
+			if (client.getNom().equals(nom) && client.getPrenom().equals(prenom)) {
+				client.getListeCompteBancaire();
+				return;
+			}
+		}
+	}
 }
